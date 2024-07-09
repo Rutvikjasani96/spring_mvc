@@ -3,6 +3,7 @@ package com.spring_mvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,5 +49,19 @@ public class HomeController {
         return "contactus";
     }
 
+    @RequestMapping("/help")
+    public ModelAndView help(){
+        System.out.println("Help Page Called...");
+//        Object Created
+        ModelAndView modelAndView = new ModelAndView();
 
+//        Add Data
+        modelAndView.addObject("id",96);
+        modelAndView.addObject("name","Rutvik Jasani");
+        modelAndView.addObject("number","7984507354");
+
+        modelAndView.setViewName("help");
+
+        return modelAndView;
+    }
 }
