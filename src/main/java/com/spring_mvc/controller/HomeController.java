@@ -3,14 +3,16 @@ package com.spring_mvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/first")
 public class HomeController {
-    @RequestMapping("/home")
+    @RequestMapping(path = "/home", method = RequestMethod.GET)
     public String home(Model model){
         System.out.println("This is home url...");
 
@@ -61,6 +63,34 @@ public class HomeController {
         modelAndView.addObject("number","7984507354");
 
         modelAndView.setViewName("help");
+
+        return modelAndView;
+    }
+
+    @RequestMapping("/jspex")
+    public ModelAndView jspExpression(){
+        System.out.println("JSP Expression Page Called...");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("name","Rutvik Jasani");
+        modelAndView.setViewName("jspex");
+
+        List<String> friends = new ArrayList<String>();
+        friends.add("Rutvik");
+        friends.add("Smit");
+        friends.add("Shivangi");
+        friends.add("Mansi");
+        friends.add("Rency");
+        friends.add("Jalpa");
+        friends.add("Sanket");
+        friends.add("Neel");
+        friends.add("Nikhil");
+        friends.add("Pratik");
+        friends.add("Meet");
+        friends.add("Kevin");
+        friends.add("Renish");
+        friends.add("Mayank");
+
+        modelAndView.addObject("f",friends);
 
         return modelAndView;
     }
