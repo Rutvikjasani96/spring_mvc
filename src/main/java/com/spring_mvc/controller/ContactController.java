@@ -1,27 +1,47 @@
 package com.spring_mvc.controller;
 
+import com.spring_mvc.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContactController {
+
+    @ModelAttribute
+    public void CommonDataForModel(Model model) {
+        model.addAttribute("head","Welcome to Spring MVC");
+        model.addAttribute("desc", "Spring MVC");
+    }
     @RequestMapping("/contact")
-    public String showForm() {
+    public String showForm(Model model) {
         return "contact";
     }
 
     @RequestMapping(path = "/processform", method = RequestMethod.POST)
-    public String handleForm(@RequestParam("email") String email,
-                             @RequestParam("userName") String userName,
-                             @RequestParam("userPassword") String userPassword,
-                             Model model) {
-        model.addAttribute("email", email);
-        model.addAttribute("userName", userName);
-        model.addAttribute("userPassword", userPassword);
-
+    public String handleForm(@ModelAttribute User user, Model model) {
         return "success";
     }
 }
+
+//@RequestMapping(path = "/processform", method = RequestMethod.POST)
+//public String handleForm(@RequestParam("email") String email,
+//                         @RequestParam("userName") String userName,
+//                         @RequestParam("userPassword") String userPassword,
+//                         Model model) {
+////        model.addAttribute("email", email);
+////        model.addAttribute("userName", userName);
+////        model.addAttribute("userPassword", userPassword);
+//
+//    User user = new User();
+//    user.setEmail(email);
+//    user.setUserName(userName);
+//    user.setUserPassword(userPassword);
+//    model.addAttribute("user", user);
+//
+//    return "success";
+//}
+

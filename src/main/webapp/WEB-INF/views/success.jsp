@@ -13,8 +13,11 @@
     <title>Success Page</title>
 </head>
 <body>
-    <h1>Welcome ${userName}</h1>
-    <h1>your email is ${email}</h1>
-    <h1>your password is ${userPassword}</h1>
+    <h1>${head}</h1>
+    <h1>${desc}</h1>
+    <hr>
+    <h1>Welcome ${user.userName}</h1>
+    <h1>your email is ${user.email}</h1>
+    <h1>your password is ${user.userPassword}</h1>
 </body>
 </html>

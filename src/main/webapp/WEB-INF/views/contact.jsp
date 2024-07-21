@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
+<%@ page isELIgnored="false" %>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,6 +20,14 @@
     <h1>Contact Page</h1>
   </div>
 
+  <hr>
+  <center>
+    <h1>${head}</h1>
+  </center>
+  <center>
+    <h1>${desc}</h1>
+  </center>
+  <hr>
 
   <div class="container mt-5"
 
