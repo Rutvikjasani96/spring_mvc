@@ -1,6 +1,7 @@
 package com.spring_mvc.controller;
 
 import com.spring_mvc.model.User;
+import com.spring_mvc.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ContactController {
 
+    private UserService userService;
     @ModelAttribute
     public void CommonDataForModel(Model model) {
         model.addAttribute("head","Welcome to Spring MVC");
@@ -23,6 +25,7 @@ public class ContactController {
 
     @RequestMapping(path = "/processform", method = RequestMethod.POST)
     public String handleForm(@ModelAttribute User user, Model model) {
+        userService.createUser(user);
         return "success";
     }
 }
